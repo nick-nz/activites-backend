@@ -17,8 +17,9 @@ namespace activities_api.Controllers
 
     public IHttpActionResult Get()
     {
-      var polylines = this.polylineService.GetPolylines().ToList();
-      return this.Ok(new { polylines = polylines });
+      var rides = this.polylineService.GetPolylines("Ride").ToList();
+      var runs = this.polylineService.GetPolylines("Run").ToList();
+      return this.Ok(new { rides = rides, runs = runs });
     }
 
   }
